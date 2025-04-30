@@ -1,6 +1,6 @@
 # mcp-servers
 
-## setup
+## Setup
 
 ```bash
 uv sync
@@ -8,14 +8,20 @@ uv sync
 
 ## MCP Server
 
-start sse server
+**start sse server**
 
 ```bash
 uv run main.py
 ```
 
-mcp inspector
+or docker
 
 ```bash
-uv run fastmcp dev main.py
+docker compose up
+```
+
+**mcp inspector**
+
+```bash
+npx @modelcontextprotocol/inspector npm run dev
 ```
