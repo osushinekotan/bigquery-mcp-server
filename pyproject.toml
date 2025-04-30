@@ -1,0 +1,51 @@
+[project]
+name = "mcp-servers"
+version = "0.1.0"
+description = "FastAPI MCP Servers"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=2.2.5",
+    "google-cloud-bigquery>=3.31.0",
+    "hf-xet>=1.0.5",
+    "pydantic>=2.11.3",
+    "pydantic-settings>=2.8.1",
+    "pytest>=8.3.5",
+    "python-dotenv>=1.1.0",
+    "qdrant-client>=1.14.1",
+    "sentence-transformers>=4.1.0",
+    "sqlparse>=0.5.3",
+    "tavily-python>=0.5.4",
+    "typing-extensions>=4.13.1",
+]
+
+[dependency-groups]
+dev = ["ipykernel>=6.29.5", "mcp-servers", "mypy>=1.15.0", "ruff>=0.9.10"]
+
+[tool.ruff]
+line-length = 120
+# https://docs.astral.sh/ruff/rules/
+lint.select = [
+    "F", # pyflakes
+    "E", # pycodestyle
+    "W", # pycodestyle warnings
+    "I", # isort
+    # "D", # pydocstyle
+    "B",   # flakes8-bugbear
+    "UP",  # pyupgrade
+    "N",   # pep8-naming
+    "C90", # mccabe
+]
+lint.fixable = ["ALL"]
+lint.unfixable = [
+    "F401", # module imported but unused
+    "F841", # local variable is assigned to but never used
+]
+lint.ignore = [
+    "E501", # line too long
+    "E402", # module level import not at top of file
+    "N806", # variable in function should be lowercase
+    "N803", # argument name should be lowercase
+    "B008", # do not perform function calls in argument defaults
+    "B904", # checks for raise statements in exception handlers that lack a from clause.
+]
