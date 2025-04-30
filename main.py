@@ -1,11 +1,14 @@
+import logging
+
 from fastmcp import FastMCP
 
 from servers.settings import APP_HOST, APP_PORT
 from servers.tools.bigquery import mcp as bigquery_mcp
 from servers.tools.health import mcp as health_mcp
 
-server = FastMCP("servers")
+logger = logging.getLogger(__name__)
 
+server = FastMCP("servers")
 server.mount("bigquery", bigquery_mcp)
 server.mount("health", health_mcp)
 
