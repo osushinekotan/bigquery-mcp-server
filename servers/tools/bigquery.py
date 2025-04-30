@@ -114,14 +114,14 @@ class BigqueryTool:
             # Query INFORMATION_SCHEMA.TABLES for table metadata
             schema_query = f"""
             SELECT
-            DATE(TIMESTAMP_MILLIS(creation_time)) AS creation_date,
-            DATE(TIMESTAMP_MILLIS(last_modified_time)) AS last_modified_date,
-            row_count,
-            size_bytes
+                DATE(TIMESTAMP_MILLIS(creation_time)) AS creation_date,
+                DATE(TIMESTAMP_MILLIS(last_modified_time)) AS last_modified_date,
+                row_count,
+                size_bytes
             FROM
-            `{PROJECT_ID}.{dataset_id}.__TABLES__`
+                `{PROJECT_ID}.{dataset_id}.__TABLES__`
             WHERE
-            table_id = '{table_id}'
+                table_id = '{table_id}'
             """
 
             table_info = None
@@ -154,10 +154,13 @@ class BigqueryTool:
                     )
                 )
 
+            table_obj = self.client.get_table(f"{dataset_id}.{table_id}")
+
             # Create response object
             table_details = TableDetails(
                 table_id=table_id,
                 dataset_id=dataset_id,
+                description=table_obj.description,
                 columns=columns,
                 row_count=table_info.row_count,
                 size_bytes=table_info.size_bytes,
