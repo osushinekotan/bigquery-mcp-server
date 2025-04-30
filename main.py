@@ -14,14 +14,10 @@ server = FastMCP("servers")
 
 # Register the BigQuery tool
 bigquery_tool = BigqueryTool(client=bigquery_client)
-server.add_resource_fn(bigquery_tool.list_datasets, tags=["bigquery"], uri="bigquery://datasets")
-server.add_resource_fn(bigquery_tool.get_allowed_datasets, tags=["bigquery"], uri="bigquery://allowed_datasets")
-server.add_resource_fn(bigquery_tool.list_tables, tags=["bigquery"], uri="bigquery://{dataset_id}/tables")
-server.add_resource_fn(
-    bigquery_tool.describe_table,
-    tags=["bigquery"],
-    uri="bigquery://{dataset_id}/{table_id}/details",
-)
+server.add_tool(bigquery_tool.list_datasets, tags=["bigquery"])
+server.add_tool(bigquery_tool.get_allowed_datasets, tags=["bigquery"])
+server.add_tool(bigquery_tool.list_tables, tags=["bigquery"])
+server.add_tool(bigquery_tool.describe_table, tags=["bigquery"])
 server.add_tool(bigquery_tool.execute_query, tags=["bigquery"])
 
 # Register the health check tool
