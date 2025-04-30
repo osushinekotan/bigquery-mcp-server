@@ -25,3 +25,18 @@ docker compose up
 ```bash
 npx @modelcontextprotocol/inspector npm run dev
 ```
+
+## MCP Client
+
+### claude desktop
+
+```
+{
+  "mcpServers": {
+    "servers": {
+      "command": "uvx",
+      "args": ["mcp-proxy", "http://localhost:8001/sse"]
+    }
+  }
+}
+```
