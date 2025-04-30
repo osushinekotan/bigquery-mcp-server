@@ -1,5 +1,5 @@
 def health_check() -> str:
     """
-    Health check endpoint.
+    Health check MCP Server.
     """
     return "health ✅"
