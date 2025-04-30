@@ -1,10 +1,4 @@
-from fastmcp import FastMCP
-
-mcp = FastMCP("health")
-
-
-@mcp.tool(name="check", tags=["health"])
-def check() -> str:
+def health_check() -> str:
     """
     Health check endpoint.
     """

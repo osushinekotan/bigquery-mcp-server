@@ -38,11 +38,6 @@ class TableDetails(BaseModel):
     last_modified: str | None = None
 
 
-class QueryRequest(BaseModel):
-    query: str
-    dry_run: bool = True
-
-
 class QueryResult(BaseModel):
     rows: list[dict[str, Any]]
     total_rows: int
