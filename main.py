@@ -10,7 +10,7 @@ from servers.tools.health import health_check
 logger = logging.getLogger(__name__)
 
 bigquery_client = init_bigquery_client()
-server = FastMCP("servers")
+server = FastMCP("bigquery-mcp-server")
 
 # Register the BigQuery tool
 bigquery_tool = BigqueryTool(client=bigquery_client)

@@ -1,26 +1,20 @@
 [project]
-name = "mcp-servers"
+name = "bigquery-mcp-server"
 version = "0.1.0"
-description = "FastAPI MCP Servers"
+description = "Bigquery MCP Server"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastmcp>=2.2.5",
     "google-cloud-bigquery>=3.31.0",
-    "hf-xet>=1.0.5",
     "pydantic>=2.11.3",
     "pydantic-settings>=2.8.1",
     "pytest>=8.3.5",
     "python-dotenv>=1.1.0",
-    "qdrant-client>=1.14.1",
-    "sentence-transformers>=4.1.0",
-    "sqlparse>=0.5.3",
-    "tavily-python>=0.5.4",
-    "typing-extensions>=4.13.1",
 ]
 
 [dependency-groups]
-dev = ["ipykernel>=6.29.5", "mcp-servers", "mypy>=1.15.0", "ruff>=0.9.10"]
+dev = ["ipykernel>=6.29.5", "mypy>=1.15.0", "ruff>=0.9.10"]
 
 [tool.ruff]
 line-length = 120

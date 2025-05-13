@@ -1,4 +1,4 @@
-# mcp-servers
+# bigquery-mcp-server
 
 ## Setup
 
